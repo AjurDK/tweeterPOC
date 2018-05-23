@@ -8,13 +8,13 @@
     <thead>
         <tr>
             <th>
-                Id
+                Tweet Id
             </th>
             <th>
-                Stamp
+                Date Stamp
             </th>
             <th>
-                Text
+                Tweet Text
             </th>
         </tr>
     </thead>
@@ -23,11 +23,11 @@
 
 <script>
     $(document).ready(function () {
-        $.get("/api/TweeterIO/GetTweetes", { startDateStr: "2016-01-01T00:00:00.00Z", endDateStr: "2017-12-31T00:00:00.00Z" })
+        $.get("/api/TweeterIO/GetTweetes", { startDateStr: "2016-01-01T00:00:00.00Z", endDateStr: "2018-01-01T00:00:00.00Z" })
             .done(function (tweetList) {
                 var strResult = "";
-                $.each(tweetList, function (index, tweets) {
-                    $.each(tweets, function (index1, tweet) {
+                $.each(tweetList, function (tweetsIndex, tweets) {
+                    $.each(tweets, function (tweetIndex, tweet) {
                         strResult += "<tr><td>" + tweet.id + "</td><td> " + tweet.stamp + "</td><td>" + tweet.text + "</td></tr>";
                     });
                 });
